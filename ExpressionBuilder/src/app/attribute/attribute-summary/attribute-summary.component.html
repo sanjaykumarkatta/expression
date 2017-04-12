@@ -1,0 +1,43 @@
+<div bsModal #ccModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form [formGroup]="cmdCtrlForm" (ngSubmit)="submit(cmdCtrlForm.value)">
+        <div class="modal-header">
+          <div class="modal-title pull-left">
+            <span class="fa fa-bolt"></span> Attribute Summary</div>
+          <button type="button" class="close pull-right" (click)="close()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row" [ngClass]="{'has-danger': !cmdCtrlForm.get('id').valid}">
+            <label for="id" class="col-sm-2 form-control-label">Node server(s):</label>
+            <div class="col-sm-10">
+                     <textarea rows="3" class="form-control" id='id' type="text"
+                               [ngClass]="{'form-control-danger': !cmdCtrlForm.get('id').valid}"
+                               placeholder="Enter list of node servers..." formControlName="id"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 form-control-label" for="name">Name</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" id="name" formControlName="name"/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 form-control-label" for="intent">Intent</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" id="intent" formControlName="intent"/>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" (click)="close()">close</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!cmdCtrlForm.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

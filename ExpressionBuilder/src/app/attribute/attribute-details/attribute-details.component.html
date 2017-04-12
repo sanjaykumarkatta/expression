@@ -1,0 +1,12 @@
+
+<div class="container">
+  <div >
+    <table class="table table-hover detail">
+      <tr><td>Name</td><td>Description</td></tr>
+      <tr *ngFor="let attributeDetail of attributeDetails" (click)="summary.show()">
+        <td>{{attributeDetail.name}}</td>
+        <td>{{ attributeDetail.description }}</td></tr>
+    </table>
+  </div>
+</div>
+<app-attribute-summary #summary></app-attribute-summary>
